@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mythtodo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mythtodo
+  template:
+    metadata:
+      labels:
+        app: mythtodo
+    spec:
+      containers:
+      - name: mythtodo
+        image: antoniogarrote/mythtodo:latest
+        ports:
+        - containerPort: 3000
